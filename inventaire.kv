@@ -1,0 +1,451 @@
+# kivy 1.9.1
+# vim:sw=4:fdm=marker:nowrap
+
+<InventaireGui>: #{{{1 Fenetre de l'application
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 0 #.15
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    TabbedPanelLotB:
+        center: self.parent.center
+        width: 768
+        height: 480
+#}}}
+
+<TabbedPanelLotB>: #{{{1 Panneaux du contenur du lot B
+    do_default_tab: False
+    TabbedPanelItem: #{{{2 Divers
+        text: 'Divers'
+        GridLayout:
+            orientation: 'vertical'
+            cols: 1
+            GridLayout: #{{{3 Bilan
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 30
+                cols: 9
+                Label:
+                    text: "Fiches Bilan"
+                    size_hint_x: None
+                    width: 300
+                    text_size: 300, None
+                    halign: 'left'
+                TextInput:
+                    #text: "2"
+                    text: str(int(stock_FichesBilan_IntraReglement.value) + int(stock_FichesBilan_ExtraReglement.value) )
+                    id: fiches_bilan
+                    size_hint_x: None
+                    width: 30
+                Label:
+                    text: "/" + str(stock_FichesBilan_IntraReglement.max)
+                    size_hint_x: None
+                    width: 40
+                Button:
+                    text: '<'
+                    on_press: root.mns(stock_FichesBilan_IntraReglement, stock_FichesBilan_ExtraReglement)
+                    size_hint_x: None
+                    width: 50
+                Button:
+                    text:'>'
+                    size_hint_x: None
+                    width: 50
+                    on_press: root.pls(stock_FichesBilan_IntraReglement, stock_FichesBilan_ExtraReglement)
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_FichesBilan_IntraReglement
+                    value: 2
+                    max: 2
+                    size_hint_x: None
+                    width: 50
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_FichesBilan_ExtraReglement
+                    value: 2
+                    size_hint_x: None
+                    max: int(stock_FichesBilan_IntraReglement.max)*4
+                    width: int(stock_FichesBilan_IntraReglement.width)*4
+            #}}}
+            GridLayout: #{{{3 Stylo
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 30
+                cols: 9
+                Label:
+                    text: "Stylo"
+                    size_hint_x: None
+                    width: 300
+                    text_size: 300, None
+                    halign: 'left'
+                TextInput:
+                    text: str(int(stock_Stylo_IntraReglement.value) + int(stock_Stylo_ExtraReglement.value) )
+                    id: fiches_bilan
+                    size_hint_x: None
+                    width: 30
+                Label:
+                    text: "/" + str(stock_Stylo_IntraReglement.max)
+                    size_hint_x: None
+                    width: 40
+                Button:
+                    text: '<'
+                    on_press: root.mns(stock_Stylo_IntraReglement, stock_Stylo_ExtraReglement)
+                    size_hint_x: None
+                    width: 50
+                Button:
+                    text:'>'
+                    size_hint_x: None
+                    width: 50
+                    on_press: root.pls(stock_Stylo_IntraReglement, stock_Stylo_ExtraReglement)
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_Stylo_IntraReglement
+                    value: 1
+                    max: 1
+                    size_hint_x: None
+                    width: 50
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_Stylo_ExtraReglement
+                    value: 1
+                    size_hint_x: None
+                    max: int(stock_Stylo_IntraReglement.max)*4
+                    width: int(stock_Stylo_IntraReglement.width)*4
+            #}}}
+            GridLayout: #{{{3 #TelRadio
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 30
+                cols: 9
+                Label:
+                    text: "Tel ou Radio"
+                    size_hint_x: None
+                    width: 300
+                    text_size: 300, None
+                    halign: 'left'
+                TextInput:
+                    text: str(int(stock_TelRadio_IntraReglement.value) + int(stock_TelRadio_ExtraReglement.value) )
+                    id: fiches_bilan
+                    size_hint_x: None
+                    width: 30
+                Label:
+                    text: "/" + str(stock_TelRadio_IntraReglement.max)
+                    size_hint_x: None
+                    width: 40
+                Button:
+                    text: '<'
+                    on_press: root.mns(stock_TelRadio_IntraReglement, stock_TelRadio_ExtraReglement)
+                    size_hint_x: None
+                    width: 50
+                Button:
+                    text:'>'
+                    size_hint_x: None
+                    width: 50
+                    on_press: root.pls(stock_TelRadio_IntraReglement, stock_TelRadio_ExtraReglement)
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_TelRadio_IntraReglement
+                    value: 0
+                    max: 1
+                    size_hint_x: None
+                    width: 50
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_TelRadio_ExtraReglement
+                    value: 0
+                    size_hint_x: None
+                    max: int(stock_TelRadio_IntraReglement.max)*4
+                    width: int(stock_TelRadio_IntraReglement.width)*4
+            #}}}
+            GridLayout: #{{{3 #CiseauGesco
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 30
+                cols: 9
+                Label:
+                    text: "Ciseau Gesco"
+                    size_hint_x: None
+                    width: 300
+                    text_size: 300, None
+                    halign: 'left'
+                TextInput:
+                    text: str(int(stock_CiseauGesco_IntraReglement.value) + int(stock_CiseauGesco_ExtraReglement.value) )
+                    id: fiches_bilan
+                    size_hint_x: None
+                    width: 30
+                Label:
+                    text: "/" + str(stock_CiseauGesco_IntraReglement.max)
+                    size_hint_x: None
+                    width: 40
+                Button:
+                    text: '<'
+                    on_press: root.mns(stock_CiseauGesco_IntraReglement, stock_CiseauGesco_ExtraReglement)
+                    size_hint_x: None
+                    width: 50
+                Button:
+                    text:'>'
+                    size_hint_x: None
+                    width: 50
+                    on_press: root.pls(stock_CiseauGesco_IntraReglement, stock_CiseauGesco_ExtraReglement)
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_CiseauGesco_IntraReglement
+                    value: 1
+                    max: 1
+                    size_hint_x: None
+                    width: 50
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_CiseauGesco_ExtraReglement
+                    value: 0
+                    size_hint_x: None
+                    max: int(stock_CiseauGesco_IntraReglement.max)*4
+                    width: int(stock_CiseauGesco_IntraReglement.width)*4
+            #}}}
+            GridLayout: #{{{3 #LampePoche
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 30
+                cols: 9
+                Label:
+                    text: "Lampe de poche"
+                    size_hint_x: None
+                    width: 300
+                    text_size: 300, None
+                    halign: 'left'
+                TextInput:
+                    text: str(int(stock_LampePoche_IntraReglement.value) + int(stock_LampePoche_ExtraReglement.value) )
+                    id: fiches_bilan
+                    size_hint_x: None
+                    width: 30
+                Label:
+                    text: "/" + str(stock_LampePoche_IntraReglement.max)
+                    size_hint_x: None
+                    width: 40
+                Button:
+                    text: '<'
+                    on_press: root.mns(stock_LampePoche_IntraReglement, stock_LampePoche_ExtraReglement)
+                    size_hint_x: None
+                    width: 50
+                Button:
+                    text:'>'
+                    size_hint_x: None
+                    width: 50
+                    on_press: root.pls(stock_LampePoche_IntraReglement, stock_LampePoche_ExtraReglement)
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_LampePoche_IntraReglement
+                    value: 1
+                    max: 1
+                    size_hint_x: None
+                    width: 50
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_LampePoche_ExtraReglement
+                    value: 0
+                    size_hint_x: None
+                    max: int(stock_LampePoche_IntraReglement.max)*4
+                    width: int(stock_LampePoche_IntraReglement.width)*4
+            #}}}
+            GridLayout: #{{{3 #Sucre
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 30
+                cols: 9
+                Label:
+                    text: "Sucre"
+                    size_hint_x: None
+                    width: 300
+                    text_size: 300, None
+                    halign: 'left'
+                TextInput:
+                    text: str(int(stock_Sucre_IntraReglement.value) + int(stock_Sucre_ExtraReglement.value) )
+                    id: fiches_bilan
+                    size_hint_x: None
+                    width: 30
+                Label:
+                    text: "/" + str(stock_Sucre_IntraReglement.max)
+                    size_hint_x: None
+                    width: 40
+                Button:
+                    text: '<'
+                    on_press: root.mns(stock_Sucre_IntraReglement, stock_Sucre_ExtraReglement)
+                    size_hint_x: None
+                    width: 50
+                Button:
+                    text:'>'
+                    size_hint_x: None
+                    width: 50
+                    on_press: root.pls(stock_Sucre_IntraReglement, stock_Sucre_ExtraReglement)
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_Sucre_IntraReglement
+                    value: 5
+                    max: 5
+                    size_hint_x: None
+                    width: 50
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_Sucre_ExtraReglement
+                    value: 0
+                    size_hint_x: None
+                    max: int(stock_Sucre_IntraReglement.max)*4
+                    width: int(stock_Sucre_IntraReglement.width)*4
+            #}}}
+            GridLayout: #{{{3 #Eau
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 30
+                cols: 9
+                Label:
+                    text: "Bouteille Eau"
+                    size_hint_x: None
+                    width: 300
+                    text_size: 300, None
+                    halign: 'left'
+                TextInput:
+                    text: str(int(stock_Eau_IntraReglement.value) + int(stock_Eau_ExtraReglement.value) )
+                    id: fiches_bilan
+                    size_hint_x: None
+                    width: 30
+                Label:
+                    text: "/" + str(stock_Eau_IntraReglement.max)
+                    size_hint_x: None
+                    width: 40
+                Button:
+                    text: '<'
+                    on_press: root.mns(stock_Eau_IntraReglement, stock_Eau_ExtraReglement)
+                    size_hint_x: None
+                    width: 50
+                Button:
+                    text:'>'
+                    size_hint_x: None
+                    width: 50
+                    on_press: root.pls(stock_Eau_IntraReglement, stock_Eau_ExtraReglement)
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_Eau_IntraReglement
+                    value: 1
+                    max: 1
+                    size_hint_x: None
+                    width: 50
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_Eau_ExtraReglement
+                    value: 0
+                    size_hint_x: None
+                    max: int(stock_Eau_IntraReglement.max)*4
+                    width: int(stock_Eau_IntraReglement.width)*4
+            #}}}
+            GridLayout: #{{{3 #Gobelets
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 30
+                cols: 9
+                Label:
+                    text: "Gobelets"
+                    size_hint_x: None
+                    width: 300
+                    text_size: 300, None
+                    halign: 'left'
+                TextInput:
+                    text: str(int(stock_Gobelets_IntraReglement.value) + int(stock_Gobelets_ExtraReglement.value) )
+                    id: fiches_bilan
+                    size_hint_x: None
+                    width: 30
+                Label:
+                    text: "/" + str(stock_Gobelets_IntraReglement.max)
+                    size_hint_x: None
+                    width: 40
+                Button:
+                    text: '<'
+                    on_press: root.mns(stock_Gobelets_IntraReglement, stock_Gobelets_ExtraReglement)
+                    size_hint_x: None
+                    width: 50
+                Button:
+                    text:'>'
+                    size_hint_x: None
+                    width: 50
+                    on_press: root.pls(stock_Gobelets_IntraReglement, stock_Gobelets_ExtraReglement)
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_Gobelets_IntraReglement
+                    value: 3
+                    max: 3
+                    size_hint_x: None
+                    width: 50
+                Label:
+                    text: ""
+                    size_hint_x: None
+                    width: 10
+                ProgressBar:
+                    id: stock_Gobelets_ExtraReglement
+                    value: 2
+                    size_hint_x: None
+                    max: int(stock_Gobelets_IntraReglement.max)*4
+                    width: int(stock_Gobelets_IntraReglement.width)*4
+            #}}}
+    #}}}
+
+    TabbedPanelItem: #{{{2 Protection
+        text: 'Protection'
+    #}}}
+
+    TabbedPanelItem: #{{{2 Memmorragies et plaies
+        text: 'Hém&Plaies'
+        tab_width: 0.5
+    #}}}
+
+    TabbedPanelItem: #{{{2 Immobilisation
+        text: 'Immob.'
+    #}}}
+
+    TabbedPanelItem: #{{{2 Reanimation
+        text: 'Réan.'
+    #}}}
+#}}}
