@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.tabbedpanel import TabbedPanel
