@@ -9,7 +9,7 @@ class InventaireGui(Widget):
 class TabbedPanelLotB(TabbedPanel):
 
     def debug(self, stockPB):
-        print ('debug: ' + str(stockPB.value))
+        print 'debug: ' + str(stockPB.value)
 
     def mns(self, ProgressBarIntra, ProgressBarExtra):
         if  ProgressBarIntra.value + ProgressBarExtra.value - 1 <= ProgressBarIntra.max:
